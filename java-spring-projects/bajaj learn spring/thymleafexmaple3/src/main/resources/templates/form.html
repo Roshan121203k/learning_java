@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add / Edit Employee</title>
+</head>
+<body>
+
+<h2 th:text="${employee.id} != null ? 'Edit Employee' : 'Add Employee'"></h2>
+
+<form th:action="@{/save}" th:object="${employee}" method="post" enctype="multipart/form-data">
+
+    <!-- 🔥 important for edit -->
+    <input type="hidden" th:field="*{id}">
+
+    <label>Name:</label><br>
+    <input type="text" th:field="*{name}" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" th:field="*{email}" required><br><br>
+
+    <label>Role:</label><br>
+    <input type="text" th:field="*{role}" required><br><br>
+
+    <label>Image:</label><br>
+    <input type="file" name="image" accept="image/*"><br><br>
+
+    <!-- 🔥 show existing image in edit -->
+    
+
+    <button type="submit">Save</button>
+
+</form>
+
+<br>
+<a href="/">Back to List</a>
+
+</body>
+</html>

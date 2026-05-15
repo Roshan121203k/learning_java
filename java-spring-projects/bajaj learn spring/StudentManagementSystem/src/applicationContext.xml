@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+
+   
+    <bean id="project1" class="com.training.org.Project">
+        <property name="projectId" value="101"/>
+        <property name="projectName" value="Booking System"/>
+        <property name="clientName" value="ABC Corp"/>
+    </bean>
+
+    <bean id="project2" class="com.training.org.Project">
+        <property name="projectId" value="102"/>
+        <property name="projectName" value="E-Commerce"/>
+        <property name="clientName" value="XYZ Ltd"/>
+    </bean>
+    
+    <bean id="payBean" class="com.training.org.Payslip">
+    	<property name="basic" value="10"/>
+    	<property name="hra" value="10"/>
+    	<property name="da" value="10"/>
+    	
+    	<property name="deductions" value="10"/>
+    </bean>
+	<bean id="cert3" class="com.training.org.Certification">
+		  <property name="certId" value="1"/>
+        <property name="certName" value="Java Certification"/>
+        <property name="provider" value="Oracle"/>
+	</bean>
+  
+    <bean id="cert1" class="com.training.org.Certification">
+        <property name="certId" value="1"/>
+        <property name="certName" value="Java Certification"/>
+        <property name="provider" value="Oracle"/>
+    </bean>
+
+    <bean id="cert2" class="com.training.org.Certification">
+        <property name="certId" value="2"/>
+        <property name="certName" value="AWS Cloud"/>
+        <property name="provider" value="Amazon"/>
+    </bean>
+
+    
+    <bean id="employeebean" class="com.training.org.Employee">
+        <property name="id" value="1"/>
+        <property name="name" value="hello"/>
+        <property name="salary" value="200000"/>
+        <property name="designation" value="number1"/>
+
+        <property name="address">
+            <list>
+                <value>one</value>
+                <value>two</value>
+            </list>
+        </property>
+
+        <property name="technologies">
+            <list>
+                <value>Java</value>
+                <value>Spring</value>
+            </list>
+        </property>
+
+       
+         <property name="projects">
+            <list>
+                <ref bean="project1"/>
+                <ref bean="project2"/>
+            </list>
+        </property>
+
+      
+        <property name="certifications">
+            <list>
+                <ref bean="cert1"/>
+                <ref bean="cert2"/>
+            </list>
+        </property>
+     	
+     	<property name="payslip" ref="payBean"></property>
+
+    </bean>
+    <bean id="b" class="com.training.org.B"/>
+	<bean id="objA" class="com.training.org.A" autowire="byName"></bean>
+</beans>
